@@ -11,8 +11,7 @@
         <button *ngFor='let box of boxes, index as i' class='btn box'
             (click)="onSelectBox(box.id)" attr.id="box{{box.id}}"
             [style.left.px]='box.x' [style.top.px]='box.y'
-            [style.background-color]='box.color' [style.z-index]='box.id'
-            title="box.id" appActive>
+            [style.background-color]='box.color' [style.z-index]='box.id'>
             {{box.id}}
         </button>
     </div></div></div></div></div></div></div></div></div></div>
