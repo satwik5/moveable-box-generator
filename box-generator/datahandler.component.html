@@ -1,0 +1,40 @@
+<!-- page loader useful for fetching all the required api etc-->
+<h2 class='loadhead' *ngIf='pageLoader'><b>flyt</b>base - 
+    <span class='loadhead1'>Leveraging the World’s 1st Internet of Drones Platform</span></h2>
+<div class="loader" *ngIf='pageLoader'></div>
+
+<div class='container' *ngIf='!pageLoader'>
+    <h2 class='head'>Welcome to the Moveable Box Generator - <span><b>flyt</b>base</span></h2>
+
+    <!-- Created Border frame with CSS to avoid image load based on internet connectivity-->
+    <div class=border1><div class=border2> <div class=border3><div class=border4><div class=border5><div class=border6><div class=border7><div class=border8><div class=border9><div class="row" id="main">
+        <button *ngFor='let box of boxes, index as i' class='btn box'
+            (click)="onSelectBox(box.id)" attr.id="box{{box.id}}"
+            [style.left.px]='box.x' [style.top.px]='box.y'
+            [style.background-color]='box.color' [style.z-index]='box.id'
+            title="box.id" appActive>
+            {{box.id}}
+        </button>
+    </div></div></div></div></div></div></div></div></div></div>
+<br>
+<!-- User Controller section-->
+    <div class='row '>
+        <div class='col-lg-6 row'>
+            <div class='col-6'>
+                <button class='btn inbox' [style.background-color]='nextColor' [style.z-index]='createBox'>Next Box
+                </button>
+            </div>
+            <div class='col-6'>
+                <button class="click" (click)="onAddBox()">Click me to add box</button>
+            </div>
+        </div>
+
+        <div class='col-lg-3 col-md-4 col-sm-12 col-xs-12 range'>
+            Box movement speed: {{speed}} <input type="range" min="1" max="5" value="1" class="slider" #range
+                id="myRange" (change)="onChange(range.value)">
+        </div>
+        <div class='col-lg-3 col-md-4 co-sm-6 col-xs-12'>
+            <button class="btn btn-link float-right" (click)="onClear()">clear frame</button>
+        </div>
+    </div>
+</div>
